@@ -1,7 +1,6 @@
 import yfinance as yf
 import pandas as pd
 import pandas_ta as ta
-##import ta-lib
 from backtesting import Backtest, Strategy
 from backtesting.lib import crossover
 
@@ -13,7 +12,6 @@ def EMA_Backtesting(values, n):
     each step taking into account `n` previous values.
     """
     close = pd.Series(values)
-##    return talib.EMA(close, timeperiod=n)
     return close.ewm(span=n, adjust=False).mean()
 
 class EmaCrossStrategy(Strategy):
